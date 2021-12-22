@@ -708,6 +708,7 @@ class AutoML(BaseEstimator):
         for requirement in requirements:
             if not requirement:
                 continue
+            requirement=requirement.split(';')[0]
             match = RE_PATTERN.match(requirement)
             if match:
                 name = match.group('name')

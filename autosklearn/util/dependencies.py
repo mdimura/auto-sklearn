@@ -17,6 +17,7 @@ def verify_packages(packages: Optional[Union[str, List[str]]]) -> None:
         if not package:
             continue
 
+        package = package.split(';')[0]
         match = RE_PATTERN.match(package)
         if match:
             name = match.group('name')
