@@ -257,9 +257,9 @@ class AutoML(BaseEstimator):
         # examples. Nevertheless, multi-process runs
         # have spawn as requirement to reduce the
         # possibility of a deadlock
-        self._multiprocessing_context = 'forkserver'
+        self._multiprocessing_context = 'spawn'
         if self._n_jobs == 1 and self._dask_client is None:
-            self._multiprocessing_context = 'fork'
+            self._multiprocessing_context = 'spawn'
             self._dask_client = SingleThreadedClient()
 
         if not isinstance(self._time_for_task, int):
@@ -714,7 +714,7 @@ class AutoML(BaseEstimator):
                 module_dist = pkg_resources.get_distribution(name)
                 self._logger.debug('  %s', module_dist)
             else:
-                raise ValueError('Unable to read requirement: %s' % requirement)
+                print('Unable to read requirement: %s' % requirement)
         self._logger.debug('Done printing environment information')
         self._logger.debug('Starting to print arguments to auto-sklearn')
         self._logger.debug('  tmp_folder: %s', self._backend.context._temporary_directory)

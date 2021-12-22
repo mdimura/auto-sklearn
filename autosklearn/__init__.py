@@ -13,7 +13,7 @@ requirements = requirements.decode('utf-8')
 dependencies.verify_packages(requirements)
 
 if os.name != 'posix':
-    raise ValueError(
+    print(
         'Detected unsupported operating system: %s. Please check '
         'the compability information of auto-sklearn: https://automl.github.io'
         '/auto-sklearn/stable/installation.html#windows-osx-compability' %

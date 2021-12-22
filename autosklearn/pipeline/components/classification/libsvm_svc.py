@@ -1,4 +1,7 @@
-import resource
+try:
+    import resource
+except ImportError:
+    from winstub import resource
 import sys
 
 from ConfigSpace.configuration_space import ConfigurationSpace
