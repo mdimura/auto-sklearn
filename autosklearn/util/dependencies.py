@@ -25,7 +25,7 @@ def verify_packages(packages: Optional[Union[str, List[str]]]) -> None:
             version = match.group('version1')
             _verify_package(name, operation, version)
         else:
-            raise ValueError('Unable to read requirement: %s' % package)
+            print('Unable to read requirement: %s' % package)
 
 
 # Module has no attribute __version__ wa

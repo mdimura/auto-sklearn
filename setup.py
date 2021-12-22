@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 # Check if Auto-sklearn *could* run on the given system
 if os.name != 'posix':
-    raise ValueError(
+    print(
         'Detected unsupported operating system: %s. Please check '
         'the compability information of auto-sklearn: https://automl.github.io'
         '/auto-sklearn/master/installation.html#windows-osx-compatibility' %
